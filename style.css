@@ -1,0 +1,31 @@
+.Container{
+
+}
+
+.Title{
+  text-transform: uppercase;
+}
+
+.product-name-div {
+  z-index: 999999;
+  margin-top: -20px;
+}
+
+.vizDiv{
+  margin-top: 50px;
+}
+
+.chartTitle {
+  text-anchor: middle;
+  font-size: 1.5em;
+}
+
+.activity-timeseries {
+  fill: none;
+  stroke: black;
+  stroke-weight: 1;
+}
+.descripText{
+  margin-left: 3px;
+  
+}

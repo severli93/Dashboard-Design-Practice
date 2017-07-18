@@ -68,7 +68,7 @@ const socialG = socialSvg.append('g')
 const media = ['facebook', 'twitter', 'instagram'];
 data = d3.range(0, 3, 1).map(i => {
     const obj = { media: media[i] };
-    obj.value = Math.random()*100;
+    obj.value = 30+Math.random()*60;
     return obj;
   });
 const radialScale = d3.scaleLinear().domain([0, 100]).range([0, 2*Math.PI]);

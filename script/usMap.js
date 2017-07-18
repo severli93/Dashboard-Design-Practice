@@ -6,7 +6,7 @@ const plotWidth = width - margin.left - margin.right;
 const plotHeight = height - margin.top - margin.bottom;
 const mapSvg = d3.select("#mapUS").append('svg').attr("width", width).attr("height", height);
 mapSvg.append('text')
-  .classed('chartTitle', true)
+  .classed('chartTitle h4', true)
   .text('Map')
   .attr('transform', 'translate('+width/2+','+(height-10)+')');
 
@@ -30,7 +30,8 @@ function drawMap(mapSvg,usData){
   .data(usData.features)
   .enter()
   .append('path')
-  .attr('d', path);
+  .attr('d', path)
+  .call(colorPup);
 }
 
 // Sales SVG
@@ -43,7 +44,7 @@ const salesG = salesSvg.append('g')
   .attr('transform', 'translate('+margin.left+','+margin.top+')');
 
 salesSvg.append('text')
-  .classed('chartTitle', true)
+  .classed('chartTitle h4', true)
   .text('Sales')
   .attr('transform', 'translate('+width/2+','+(height-10)+')');
 
@@ -57,8 +58,9 @@ salesG.selectAll('rect')
   .append('rect')
   .attr('x', 0)
   .attr('y', (d,i) => scaleY(i))
+  .transition().duration(2500)
   .attr('width', d => scaleX(d))
-  .attr('height', plotHeight/data.length - 3);
+  .attr('height', plotHeight/data.length - 5);
 
 // Social plot
 const socialSvg = d3.select('#socialPlot').append('svg')
@@ -79,20 +81,20 @@ const socialMediaG = socialG.selectAll('g')
   .enter()
   .append('g')
   .attr('class', d => d.media)
-  .attr('transform', d => 'translate('+(ordScale(d.media)+height/4)+',0)');
+  .attr('transform', d => 'translate('+(ordScale(d.media)+height/4)+','+height/4+')');
 socialMediaG.append('path')
-  .attr('transform', 'translate(0, '+height/4+')')
-  .attr('d', d => d3Arc.endAngle(radialScale(d.value))());
+  .attr('transform', 'translate(0, 0)')
+  .attr('d', d => d3Arc.endAngle(radialScale(d.value))())  .transition().duration(2000);
 socialMediaG.append('image')
-    .attr('xlink:href', d=> {
-      if(d.media=='facebook'){return "./img/facebookIcon.svg";}
-      if(d.media=='twitter'){return "./img/twitterIcon.svg";}
-      if(d.media=='instagram'){return "./img/instagramIcon.svg";}
-    })
-    .attr('x',-height/8)
-    .attr('y',height/8)
-    .attr('height',100)
-    .attr('width',100);
+  .attr('xlink:href', d=> {
+    if(d.media=='facebook'){return "./img/facebookIcon.svg";}
+    if(d.media=='twitter'){return "./img/twitterIcon.svg";}
+    if(d.media=='instagram'){return "./img/instagramIcon.svg";}
+  })
+  .attr('x',-height/8)
+  .attr('y',-height/8)
+  .attr('height',100)
+  .attr('width',100);
 
 
 // Activity plot
@@ -123,3 +125,28 @@ mediaG.append('path')
   .attr('class', 'activity-timeseries')
   .datum(d => d.values)
   .attr('d', line);
+
+activityG.append('text')
+  .classed('chartTitle h4', true)
+  .text('Social Activities')
+  .attr('transform', 'translate('+width/2+','+(plotHeight+margin.bottom)+')');
+
+function colorPup(selection){
+  selection
+    .on('mouseenter',function(d){
+      d3.select(this)//this --> selection
+          .transition()
+          .duration(100)
+          .style('fill','rgba(0,0,255,.1)')
+          .style('stroke','red')
+          .style('stoke-width','10px')
+  })
+
+  .on('mouseleave',function(){
+      d3.select(this)
+          .transition()
+          .duration(2000)
+          .style('fill','rgba(0,0,0,1)')
+
+    })
+}

@@ -17,7 +17,7 @@
 
 .chartTitle {
   text-anchor: middle;
-  font-size: 1.5em;
+  font-size: 1.33em;
 }
 
 .activity-timeseries {
@@ -27,5 +27,9 @@
 }
 .descripText{
   margin-left: 3px;
-  
+  margin-top: 10px;
+}
+.socialName{
+  text-anchor: middle;
+  text-align: center;
 }

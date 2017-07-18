@@ -85,9 +85,9 @@ socialMediaG.append('path')
   .attr('d', d => d3Arc.endAngle(radialScale(d.value))());
 socialMediaG.append('image')
     .attr('xlink:href', d=> {
-      if(d.media=='facebook'){return "../img/facebookIcon.svg";}
-      if(d.media=='twitter'){return "../img/twitterIcon.svg";}
-      if(d.media=='instagram'){return "../img/instagramIcon.svg";}
+      if(d.media=='facebook'){return "./img/facebookIcon.svg";}
+      if(d.media=='twitter'){return "./img/twitterIcon.svg";}
+      if(d.media=='instagram'){return "./img/instagramIcon.svg";}
     })
     .attr('x',-height/8)
     .attr('y',height/8)

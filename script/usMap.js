@@ -1,4 +1,4 @@
-const margin = {top: 20, right: 20, bottom: 40, left: 20};
+const margin = {top: 20, right: 20, bottom: 30, left: 20};
 // MAP SVG //
 const width = d3.select(".mapDiv").node().clientWidth;
 const height = d3.select(".productImgDiv").node().clientHeight;
@@ -73,7 +73,7 @@ data = d3.range(0, 3, 1).map(i => {
     obj.value = 30+Math.random()*60;
     return obj;
   });
-const radialScale = d3.scaleLinear().domain([0, 100]).range([0, 2*Math.PI]);
+const radialScale = d3.scaleLinear().domain([0, 100]).range([0, 360]);
 const ordScale = d3.scaleOrdinal().domain(media).range(d3.range(0, plotWidth, plotWidth/3));
 const d3Arc = d3.arc().innerRadius(height/4-40).outerRadius(height/4-30).startAngle(0);
 const socialMediaG = socialG.selectAll('g')
@@ -82,25 +82,45 @@ const socialMediaG = socialG.selectAll('g')
   .append('g')
   .attr('class', d => d.media)
   .attr('transform', d => 'translate('+(ordScale(d.media)+height/4)+','+height/4+')');
+function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
+  var angleInRadians = (angleInDegrees-90) * Math.PI / 180.0;
+
+  return {
+    x: centerX + (radius * Math.cos(angleInRadians)),
+    y: centerY + (radius * Math.sin(angleInRadians))
+  };
+}
+function describeArc(x, y, radius, startAngle, endAngle){
+    var start = polarToCartesian(x, y, radius, endAngle);
+    var end = polarToCartesian(x, y, radius, startAngle);
+    var largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
+    var d = [
+        "M", start.x, start.y,
+        "A", radius, radius, 0, largeArcFlag, 0, end.x, end.y
+    ].join(" ");
+    return d;
+}
 socialMediaG.append('path')
-  .attr('transform', 'translate(0, 0)')
-  .attr('d', d => d3Arc.endAngle(radialScale(d.value))())  .transition().duration(2000);
+  .classed('socialPath', true)
+  .attr('d', d => describeArc(0,0,height*0.15,0,radialScale(d.value)));
+  // .transition().delay(2000).duration(2000)
+  // .attr('d', d => d3Arc.endAngle(radialScale(d.value))());
 socialMediaG.append('image')
   .attr('xlink:href', d=> {
-    if(d.media=='facebook'){return "./img/facebookIcon.svg";}
-    if(d.media=='twitter'){return "./img/twitterIcon.svg";}
-    if(d.media=='instagram'){return "./img/instagramIcon.svg";}
+    if(d.media=='facebook'){return "./img/facebookNumber_animated.svg";}
+    if(d.media=='twitter'){return "./img/twitterNumber_animated.svg";}
+    if(d.media=='instagram'){return "./img/InstagramNumber_animated.svg";}
   })
   .attr('x',-height/8)
   .attr('y',-height/8)
-  .attr('height',100)
-  .attr('width',100);
+  .attr('height',height/4)
+  .attr('width',height/4);
 
 
 // Activity plot
 const activitySvg = d3.select("#activityPlot").append('svg')
   .attr("width", d3.select("#activityPlot").node().clientWidth)
-  .attr("height", height);
+  .attr("height", height+10);
 const activityG = activitySvg.append('g')
   .attr('transform', 'translate('+margin.left+','+margin.top+')');
 data = d3.range(0, 3, 1).map(i => {
@@ -150,3 +170,23 @@ function colorPup(selection){
 
     })
 }
+//activity tooltips
+const detailSvg1 = d3.select("#tooltip1").append('svg')
+  .attr("width", d3.select(".tooltipDiv").node().clientWidth)
+  .attr("height", plotHeight/3)
+  // .attr('transform', 'translate('+margin.left+','+margin.top+')');
+const detailSvg2 = d3.select("#tooltip2").append('svg')
+  .attr("width", d3.select(".tooltipDiv").node().clientWidth)
+  .attr("height", plotHeight/3);
+const detailSvg3 = d3.select("#tooltip3").append('svg')
+  .attr("width", d3.select(".tooltipDiv").node().clientWidth)
+  .attr("height", plotHeight/3);
+const detailSvg = d3.select("#bottomName").append('svg')
+  .attr("width", d3.select(".tooltipDiv").node().clientWidth)
+  .attr("height", margin.bottom+10);
+
+detailSvg
+  .append('text')
+  .classed('chartTitle h4',true)
+  .text('Details')
+  .attr('transform', 'translate('+width/2+','+(margin.bottom)+')');;

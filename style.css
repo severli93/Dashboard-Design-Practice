@@ -1,35 +1,55 @@
 .Container{
 
 }
-
 .Title{
   text-transform: uppercase;
 }
-
 .product-name-div {
   z-index: 999999;
   margin-top: -20px;
 }
-
 .vizDiv{
   margin-top: 50px;
 }
-
 .chartTitle {
   text-anchor: middle;
-  font-size: 1.33em;
+  /*font-size: 1.33em;*/
 }
-
 .activity-timeseries {
   fill: none;
-  stroke: black;
-  stroke-weight: 1;
+  stroke-width: 1.5pt;
 }
 .descripText{
-  margin-left: 3px;
+  /*margin-left: 3px;*/
   margin-top: 10px;
+}
+.socialPath {
+  fill: none;
+  stroke-width: 5;
 }
 .socialName{
   text-anchor: middle;
   text-align: center;
+}
+.facebook{
+  stroke:rgb(51,79,141);
+  fill:rgb(51,79,141);
+}
+.twitter{
+  stroke:rgb(65,170,242);
+  fill:rgb(65,170,242);
+}
+.instagram{
+  /*stroke:rgb(110,56,239);*/
+  stroke:rgb(219,15,193);
+  fill:rgb(219,15,193);
+}
+.productName{
+  color:rgba(255,255,255,1);
+}
+.tooltipDiv{
+  fill: "orange";
+}
+.tooltip{
+
 }

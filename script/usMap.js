@@ -11,7 +11,7 @@ mapSvg.append('text')
   .attr('transform', 'translate('+width/2+','+(height-10)+')');
 
 const projection = d3.geoAlbersUsa()
-  .scale(height*1.6)
+  .scale(height*1.8)
   .translate([width/2,height/2]);
 
 const path = d3.geoPath().projection(projection);
@@ -38,7 +38,7 @@ function drawMap(mapSvg,usData){
 // const width2 = d3.select(".salesDiv").node().clientWidth;
 // const height2 = d3.select(".productImgDiv").node().clientHeight;
 const salesSvg = d3.select("#salesPlot").append('svg')
-  .attr("width", width)
+  .attr("width", width*0.8)
   .attr("height", height);
 const salesG = salesSvg.append('g')
   .attr('transform', 'translate('+margin.left+','+margin.top+')');
@@ -50,7 +50,7 @@ salesSvg.append('text')
 
 let data = d3.range(0, 20, 1).map(d => Math.random()*200);
 const scaleY = d3.scaleLinear().domain([0, data.length]).range([0, plotHeight]);
-const scaleX = d3.scaleLinear().domain([0, 200]).range([0, plotWidth]);
+const scaleX = d3.scaleLinear().domain([0, 200]).range([0, plotWidth*0.8]);
 
 salesG.selectAll('rect')
   .data(data)

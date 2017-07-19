@@ -34,15 +34,23 @@
 .facebook{
   stroke:rgb(51,79,141);
   fill:rgb(51,79,141);
+  color:rgb(51,79,141)
 }
 .twitter{
   stroke:rgb(65,170,242);
   fill:rgb(65,170,242);
+  color:rgb(65,170,242);
 }
 .instagram{
-  /*stroke:rgb(110,56,239);*/
   stroke:rgb(219,15,193);
   fill:rgb(219,15,193);
+  color:rgb(219,15,193);
+}
+.up{
+  color:#009245;
+}
+.down{
+  color:#c1272d;
 }
 .productName{
   color:rgba(255,255,255,1);
@@ -52,4 +60,7 @@
 }
 .tooltip{
 
+}
+.socialText{
+  text-align: center;
 }

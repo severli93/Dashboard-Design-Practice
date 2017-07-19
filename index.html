@@ -51,19 +51,19 @@
                 <div class="item active">
                   <img src="./img/bmw-530e.jpg" alt="First slide">
                   <div class="product-name-div">
-                    Product Name
+                    <h4 class="productName">Product Name</h4>
                   </div>
                 </div>
                 <div class="item">
                   <img src="./img/bmw-M2.jpg" alt="Second slide">
                   <div class="product-name-div">
-                    Product Name
+                    <h4 class="productName">Product Name</h4>
                   </div>
                 </div>
                 <div class="item">
                   <img src="./img/bmw-Concept4.jpg" alt="Third slide">
                   <div class="product-name-div">
-                    Product Name
+                    <h4 class="productName">Product Name</h4>
                   </div>
                 </div>
               </div>
@@ -77,60 +77,69 @@
               </a>
             </div>
           </div>
-          <div class="mapDiv col-md-4 col-sm-12" id="mapUS"></div>
-          <div class="salesDiv col-md-4 sol-sm-12" id="salesPlot"></div>
+          <div class="mapDiv col-md-5 col-sm-12" id="mapUS"></div>
+          <div class="salesDiv col-md-3 sol-sm-12" id="salesPlot"></div>
         </div>
 
         <div class="row">
-          <div class="col-md-4">
-            <div class="row">
+          <div class="col-md-4" id=leftBottomDiv>
+            <div id="filterDiv" class="row">
               <!-- DROPDOWNS -->
               <div class="col-md-4">
-                <p class="descripText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="descripText">
+                  <ul>
+                    <li>Lorem ipsum dolor sit amet</li>
+                    <li>Consectetur adipiscing elit</li>
+                    <li>Sed do eiusmod tempor </li>
+                  </ul>
+                </p>
                 <div class="dropdown">
                   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    Dropdown
+                    Product
                     <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                     <li><a href="#">Action</a></li>
                     <li><a href="#">Another action</a></li>
                     <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
                   </ul>
                 </div>
               </div>
 
               <div class="col-md-4">
-                <p class="descripText">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p class="descripText">
+                  <ul>
+                    <li>Excepteur sint occaecat </li>
+                    <li>Non proident sunt in culpa </li>
+                    <li>Deserunt mollit anim id est</li>
+                  </ul>
                 <div class="dropdown">
                   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    Dropdown
+                    Time
                     <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                     <li><a href="#">Action</a></li>
                     <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
                   </ul>
                 </div>
               </div>
               <div class="col-md-4">
-                <p class="descripText">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p class="descripText">
+                  <ul>
+                    <li>Ut enim ad minim veniam</li>
+                    <li>Ullamco laboris nisi ut</li>
+                    <li>Aliquam erat volutpat etiam</li>
+                  </ul>
+                </p>
                 <div class="dropdown">
                   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    Dropdown
+                    Dealer
                     <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                     <li><a href="#">Action</a></li>
                     <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
                   </ul>
                 </div>
               </div>
@@ -138,33 +147,54 @@
             <div id="socialPlot" class="row">
               <!-- Social Media -->
             </div>
+            <div class="row">
+              <div class="col-md-4">
+                <h4 class="socialName ChartTitle">Facebook <i class="fa fa-facebook-square fa-lg facebook" aria-hidden="true"></i></h4>
+                <p class="socialText">
+                  Official Account: @BMW_fa
+                  <br />Follower: 13k <i class="fa fa-arrow-up fa-lg up" aria-hidden="true" style="fill:green"></i>
+                </p>
+              </div>
+              <div class="col-md-4">
+                <h4 class="socialName ChartTitle">Twitter <i class="fa fa-twitter-square fa-lg twitter" aria-hidden="true"></i></h4>
+                <p class="socialText">
+                  Official Account: @BMW_tw
+                  <br />Follower: 15k <i class="fa fa-arrow-down fa-lg down" aria-hidden="true" style="fill:red"></i>
+                </p>
+              </div>
+              <div class="col-md-4">
+                <h4 class="socialName ChartTitle">Instagram <i class="fa fa-instagram fa-lg instagram" aria-hidden="true"></i></h4>
+                <p class="socialText">
+                  Official Account: @BMW_ins
+                  <br />Follower: 15k <i class="fa fa-minus fa-lg" aria-hidden="true" style="fill:green"></i>
+                </p>
+              </div>
+            </div>
           </div>
           <div id="activityPlot" class="col-md-5">
             <!-- Activity Plot -->
           </div>
           <div class="col-md-3">
-            <div class="row">
-              <div class="col-md-6">
-                This is doing a good job
-              </div>
-              <div class="col-md-6">
-                51%
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                This is doing a bad job
-              </div>
-              <div class="col-md-6">
-                20%
+            <div class="row tooltipDiv">
+              <div id="tooltip1" class="col-md-12 tooltop">
+                <!-- <p >
+                  Details 1
+                </p> -->
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-6">
-                This is doing a ok job
+            <div class="row tooltipDiv">
+              <div id="tooltip2" class="col-md-12 tooltop">
+                <!-- Details 2 -->
               </div>
-              <div class="col-md-6">
-                90%
+            </div>
+            <div class="row tooltipDiv">
+              <div id="tooltip3" class="col-md-12 tooltop">
+                <!-- Details 3 -->
+              </div>
+            </div>
+            <div class="row ">
+              <div id="bottomName" class="col-md-12">
+
               </div>
             </div>
           </div>

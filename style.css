@@ -1,8 +1,32 @@
+h1,h2,h3,h4,h5,h6{
+  color:white;
+}
+.navbar-default{
+  background-color:inherit;
+}
 .Container{
 
 }
+body{
+  background-color: #061223;
+  font-family:"Raleway";
+  font-weight:400;
+  font-style:normal
+  color:'white';
+}
+.carousel-example-generic.carousel.slide{
+  padding:15pt;
+}
+.navbar-default{
+  background-color:#;
+  color:inherit;
+}
 .Title{
   text-transform: uppercase;
+  color: 'white';
+}
+.button-Text{
+  font-weight:700;
 }
 .product-name-div {
   z-index: 999999;
@@ -13,6 +37,7 @@
 }
 .chartTitle {
   text-anchor: middle;
+  fill:white;
   /*font-size: 1.33em;*/
 }
 .activity-timeseries {
@@ -22,6 +47,7 @@
 .descripText{
   /*margin-left: 3px;*/
   margin-top: 10px;
+  color:white;
 }
 .socialPath {
   fill: none;
@@ -30,6 +56,18 @@
 .socialName{
   text-anchor: middle;
   text-align: center;
+}
+.socialNumber{
+  text-anchor: middle;
+  fill: white;
+  stroke:none;
+  font-family: 'Abril Fatface';
+  font-weight: 400;
+  font-style: normal;
+}
+.socialText{
+  text-align: center;
+  color:white;
 }
 .facebook{
   stroke:rgb(51,79,141);
@@ -56,11 +94,20 @@
   color:rgba(255,255,255,1);
 }
 .tooltipDiv{
-  fill: "orange";
+  /*border: black 1pt solid line;
+  margin-top: 10pt;*/
 }
 .tooltip{
 
 }
-.socialText{
-  text-align: center;
+.mapSvg{
+  fill:rgba(0,0,255,0.3);
+}
+.rectShape{
+}
+.btn-default{
+  border-radius: inherit;
+}
+.dropdownMenu{
+
 }

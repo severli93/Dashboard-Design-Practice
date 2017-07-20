@@ -9,7 +9,7 @@ const plotWidthLeft = widthLeft - margin.left - margin.right;
 const plotWidthRight = widthRight - margin.left - margin.right;
 const plotHeight = height - margin.top - margin.bottom;
 
-let colorNow;
+let colorNow,strokeNow;
 
 const mapSvg = d3.select("#mapUS")
   .append('svg')
@@ -30,9 +30,10 @@ const path = d3.geoPath().projection(projection);
 
 queue()
   .defer(d3.json,"./data/us.json")
+  // .defer(d3.json,'./data/usPop.json')
   .await(results);
 
-function results (err,usData) {
+function results (err,usData,usPop) {
   if (err) throw error;
   drawMap(mapSvg,usData,path);
 }
@@ -42,7 +43,7 @@ function drawMap (mapSvg,usData) {
     .enter()
     .append('path')
     .attr('d', path)
-    .attr('stroke','#061223')
+    .style('stroke','#061223')
     .on('mouseenter', mouseenterColorPop)
     .on('mouseleave', mouseleaveColorPop);
 }
@@ -65,7 +66,7 @@ salesSvg.append('text')
 let data = d3.range(0, 20, 1).map(d => Math.random()*200);
 const scaleY = d3.scaleLinear().domain([0, data.length]).range([0, plotHeight]);
 const scaleX = d3.scaleLinear().domain([0, 200]).range([0, plotWidthRight]);
-var color = d3.scaleOrdinal(d3.schemeCategory20c);
+var color = d3.scaleOrdinal(d3.schemeCategory20b);
 // const colorScale = d3.scaleLiner().domain([])
 salesG
   .selectAll('rectShape')
@@ -157,7 +158,7 @@ const mediaG = activityG.selectAll('g')
   .append('g')
   .attr('class', d => d.media)
   .attr('transform', (d, i) => 'translate(0,'+i*(plotHeight/3)+')');
-console.log('data',data);
+// console.log('data',data);
 mediaG.append('path')
   .attr('class', 'activity-timeseries')
   .datum(d => d.values)
@@ -229,6 +230,8 @@ function mouseleaveColorPop (d) {
 function colorPup (selection) {
   selection.on('mouseenter',function (d) {
     colorNow=this.style.fill;
+    strokeNow=this.style.stroke;
+    console.log('stroke',strokeNow);
     d3.select(this) // this --> selection
       .transition()
       .duration(200)
@@ -240,6 +243,6 @@ function colorPup (selection) {
       .transition()
       .duration(5000)
       .style('fill', colorNow)
-      .style('stroke','inherit');
+      .style('stroke','#061223')
   });
 }

@@ -8,7 +8,11 @@ h1,h2,h3,h4,h5,h6{
 
 }
 body{
-  background-color: #061223
+  background-color: #061223;
+  font-family:"Raleway";
+  font-weight:400;
+  font-style:normal
+  color:'white';
 }
 .carousel-example-generic.carousel.slide{
   padding:15pt;
@@ -19,7 +23,10 @@ body{
 }
 .Title{
   text-transform: uppercase;
-  color: #11f2c6;
+  color: 'white';
+}
+.button-Text{
+  font-weight:700;
 }
 .product-name-div {
   z-index: 999999;
@@ -97,5 +104,10 @@ body{
   fill:rgba(0,0,255,0.3);
 }
 .rectShape{
+}
+.btn-default{
+  border-radius: inherit;
+}
+.dropdownMenu{
 
 }

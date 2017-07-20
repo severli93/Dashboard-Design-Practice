@@ -177,7 +177,6 @@
       .attr("width", widthRight)
       .attr("height", plotHeight/3)
       .append('g')
-      .attr('transform', 'translate('+margin.left+','+margin.top+')');
     detailSvg1
       .append('text')
       .classed('detailTitle h3',true)

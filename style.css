@@ -1,5 +1,5 @@
 h1,h2,h3,h4,h5,h6{
-  color:white;
+  color: white;
 }
 .navbar-default{
   background-color:inherit;
@@ -21,6 +21,7 @@ body{
   background-color:#;
   color:inherit;
 }
+
 .Title{
   text-transform: uppercase;
   color: 'white';
@@ -110,4 +111,7 @@ body{
 }
 .dropdownMenu{
 
+}
+.detailTitle{
+  fill:white;
 }

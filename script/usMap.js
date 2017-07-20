@@ -47,6 +47,7 @@
         .append('path')
         .attr('d', path)
         .style('stroke','#061223')
+        .style('fill','#e7e7e7')
         .on('mouseenter', mouseenterColorPop)
         .on('mouseleave', mouseleaveColorPop);
     }
